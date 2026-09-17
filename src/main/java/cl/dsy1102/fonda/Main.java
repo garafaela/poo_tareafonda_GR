@@ -16,6 +16,12 @@ public class Main {
         // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
         // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
 
+
+        Bebida pepsi = new BebidaSinAlcohol("Pepsi",150, 200, 85);
+        Bebida cerveza = new BebidaAlcoholica("Heineken",200,300,12.0,true);
+
+        System.out.println(pepsi.obtenerDetalle());
+        System.out.println(cerveza.obtenerDetalle());
         System.out.println("Proyecto listo. Comienza por la clase Bebida.");
     }
 }
