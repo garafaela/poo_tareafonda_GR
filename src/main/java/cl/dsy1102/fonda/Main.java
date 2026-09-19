@@ -18,10 +18,24 @@ public class Main {
 
 
         Bebida pepsi = new BebidaSinAlcohol("Pepsi",150, 200, 85);
+        Bebida agua = new BebidaSinAlcohol("Agua", 500, 400, 0);
         Bebida cerveza = new BebidaAlcoholica("Heineken",200,300,12.0,true);
 
         System.out.println(pepsi.obtenerDetalle());
         System.out.println(cerveza.obtenerDetalle());
+
+        GestorFonda gestor = new GestorFonda();
+        gestor.registrar(pepsi);
+        gestor.registrar(cerveza);
+        gestor.registrar(agua);
+        gestor.buscarPorNombre("Pepsi");
+        gestor.buscarPorNombre("Agua");
+        gestor.buscarPorNombre("Tónica");
+        gestor.obtenerTodas();
         System.out.println("Proyecto listo. Comienza por la clase Bebida.");
+
+
     }
+
+
 }

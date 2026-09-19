@@ -1,6 +1,9 @@
 package cl.dsy1102.fonda;
 
 public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
+    // CONSTANTE DE CLASE
+    public static final int LIMITE_UNIDADES_POR_CLIENTE = 3;
+
     // ATRIBUTOS
     private double gradoAlcohol;
     private boolean certificada;
@@ -66,8 +69,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
     @Override
     public boolean superaLimite(int unidades){
-        int limite = 3;
-        if (unidades>limite){
+        if (unidades>LIMITE_UNIDADES_POR_CLIENTE){
             return true;
         }else{
             return false;
