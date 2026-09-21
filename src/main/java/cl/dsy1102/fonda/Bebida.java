@@ -8,9 +8,9 @@ public abstract class Bebida {
 
     // CONSTRUCTOR
     public Bebida(String nombre, int volumenML, int stock){
-        this.nombre = nombre;
-        this.volumenML = volumenML;
-        this.stock = stock;
+        setNombre(nombre);
+        setVolumenML(volumenML);
+        setStock(stock);
     }
 
     // GETTERS Y SETTERS
@@ -18,19 +18,31 @@ public abstract class Bebida {
         return this.nombre;
     }
     public void setNombre(String nombre){
-        this.nombre = nombre;
+        if(nombre != null && nombre.length() != 0){
+            this.nombre = nombre;
+        }else{
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
     }
     public int getVolumenML(){
         return this.volumenML;
     }
     public void setVolumenML(int volumenML){
-        this.volumenML = volumenML;
+        if (100 <= volumenML && volumenML <= 3000){
+            this.volumenML = volumenML;
+        }else{
+            throw new IllegalArgumentException("El volumen de la bebida debe ser entre 100 - 3000 mL.");
+        }
     }
     public int getStock(){
         return this.stock;
     }
     public void setStock(int stock){
-        this.stock = stock;
+        if (0 < stock){
+            this.stock = stock;
+        }else{
+            throw new IllegalArgumentException("El stock debe ser un valor mayor que cero.");
+        }
     }
 
     // MÉTODOS ABSTRACTOS

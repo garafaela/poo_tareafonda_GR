@@ -12,7 +12,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
     // CONSTRUCTOR
     public BebidaAlcoholica(String nombre, int volumenML, int stock, double gradoAlcohol, boolean certificada){
         super(nombre, volumenML, stock);
-        this.gradoAlcohol = gradoAlcohol;
+        setGradoAlcohol(gradoAlcohol);
         this.certificada = certificada;
         this.ventaRestringida = false;
     }
@@ -22,7 +22,11 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
         return this.gradoAlcohol;
     }
     public void setGradoAlcohol(double gradoAlcohol){
-        this.gradoAlcohol = gradoAlcohol;
+        if (0.5 <= gradoAlcohol && gradoAlcohol <= 45){
+            this.gradoAlcohol = gradoAlcohol;
+        }else{
+            throw new IllegalArgumentException("Grado alcohol debe estar entre 0.5 - 45.");
+        }
     }
     public boolean isCertificada(){
         return this.certificada;

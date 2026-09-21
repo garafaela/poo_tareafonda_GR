@@ -16,19 +16,18 @@ public class GestorFonda {
         bebidas.add(bebida);
     }
 
-    public void buscarPorNombre(String nombre) {
-        System.out.println("---- BÚSQUEDA POR NOMBRE ----");
-        System.out.println("Búsqueda: " + nombre);
-        int num = 0;
+    public List<Bebida> obtenerTodas(){
+        return bebidas;
+    }
+
+    public List<Bebida> buscarPorNombre(String nombre) {
+        ArrayList<Bebida> search = new ArrayList<>();
         for (Bebida drink : bebidas) {
             if (drink.getNombre().equals(nombre)) {
-                System.out.println(drink.obtenerDetalle());
-                num+= 1;
+                search.add(drink);
             }
         }
-        if (num == 0){
-            System.out.println("No se encontraron bebidas con ese nombre.");
-        }
+        return search;
     }
 
     public void vender(String nombre, int unidades){
@@ -42,7 +41,7 @@ public class GestorFonda {
                             System.out.println("Total a Pagar: $"+drink.calcularPrecio()*unidades);
                             drink.setStock(drink.getStock()-unidades);
                         }else{
-                            System.out.println("Venta Rechazada: "+unidades+" unidades de "+drink.getNombre()+"superan el límite de 3 por cliente.");
+                            System.out.println("Venta Rechazada: "+unidades+" unidades de "+drink.getNombre()+" superan el límite de 3 por cliente.");
                         }
                     }else{
                         System.out.println("Venta Rechazada: "+drink.getNombre()+" tiene la venta restringida.");
@@ -59,13 +58,6 @@ public class GestorFonda {
             System.out.println("No se encontró una bebida con ese nombre.");
         }
     }
-
-    public void obtenerTodas(){
-        for(Bebida drink : bebidas){
-            System.out.println(drink.obtenerDetalle());
-        }
-    }
-
 }
 
 
