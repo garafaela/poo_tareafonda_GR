@@ -32,6 +32,11 @@ public class Main {
         gestor.buscarPorNombre("Agua");
         gestor.buscarPorNombre("Tónica");
         gestor.obtenerTodas();
+        System.out.println();
+
+
+        gestor.vender("Pepsi",2);
+        gestor.vender("Heineken",2);
         System.out.println("Proyecto listo. Comienza por la clase Bebida.");
 
 
