@@ -21,7 +21,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
     public double getGradoAlcohol(){
         return this.gradoAlcohol;
     }
-    public void setGradoAlcohol(double gradoAlcohol){
+    public void setGradoAlcohol(double gradoAlcohol) throws IllegalArgumentException{
         if (0.5 <= gradoAlcohol && gradoAlcohol <= 45){
             this.gradoAlcohol = gradoAlcohol;
         }else{

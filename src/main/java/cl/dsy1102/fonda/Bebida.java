@@ -11,13 +11,16 @@ public abstract class Bebida {
         setNombre(nombre);
         setVolumenML(volumenML);
         setStock(stock);
+        // Acá incluí setters en el constructor siguiendo el enunciado del ejercicio:
+        // (2. Información Necesaria. "Los constructores deben delegar la asignación de valores a los métodos setter,
+        // de modo que las validaciones definidas se apliquen desde la construcción del objeto")
     }
 
     // GETTERS Y SETTERS
     public String getNombre(){
         return this.nombre;
     }
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) throws IllegalArgumentException {
         if(nombre != null && nombre.length() != 0){
             this.nombre = nombre;
         }else{
@@ -27,7 +30,7 @@ public abstract class Bebida {
     public int getVolumenML(){
         return this.volumenML;
     }
-    public void setVolumenML(int volumenML){
+    public void setVolumenML(int volumenML) throws IllegalArgumentException {
         if (100 <= volumenML && volumenML <= 3000){
             this.volumenML = volumenML;
         }else{
@@ -37,7 +40,7 @@ public abstract class Bebida {
     public int getStock(){
         return this.stock;
     }
-    public void setStock(int stock){
+    public void setStock(int stock) throws IllegalArgumentException{
         if (0 < stock){
             this.stock = stock;
         }else{
